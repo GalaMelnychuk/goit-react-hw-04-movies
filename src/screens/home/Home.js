@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import MoviesList from '../../components/moviesList/MoviesList';
-import * as moviesRequest from "../../services/moviesAPI";
+import * as moviesApiRequest from "../../services/moviesAPI";
 
 
 export default class Home extends Component {
@@ -9,17 +9,14 @@ export default class Home extends Component {
      }
 
      componentDidMount() {
-        moviesRequest.getMovies().then((answerApi) => {
+        moviesApiRequest.getMovies().then((answerApi) => {
             this.setState({
                 moviesArr: [...answerApi.data.results]
             })
         })
-
 }
 
-
     render() {
-        console.log('this.state', this.state)
         return (
             <>
                 <h1>Tranding today</h1>

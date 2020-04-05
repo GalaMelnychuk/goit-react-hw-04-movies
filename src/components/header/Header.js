@@ -7,7 +7,7 @@ const Header = () => {
     <header>
       <ul className={styles.navigation}>
         <li className={styles.navigationItem}>
-          <NavLink activeClassName={styles.activeLink} to="/">Home</NavLink>
+          <NavLink exact activeClassName={styles.activeLink} to="/">Home</NavLink>
         </li>
         <li className={styles.navigationItem}>
           <NavLink activeClassName={styles.activeLink} to="/movies">Movies</NavLink>
