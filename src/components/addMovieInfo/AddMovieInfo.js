@@ -1,20 +1,24 @@
 import React from "react";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Route, withRouter } from "react-router-dom";
 import styles from "./AddMovieInfo.module.css";
 import Cast from "../../screens/addMovieInfo/Cast";
 import Reviews from "../../screens/addMovieInfo/Reviews";
 
-const AddMovieInfo = ({ id }) => {
+const AddMovieInfo = ({ id, location }) => {
   return (
     <>
       <div className={styles.movieInfo}>
         <h2>Additional information</h2>
         <ul>
           <li>
-            <NavLink to={`/movies/${id}/cast`} activeClassName={styles.activeLink} >Cast</NavLink>
+            <NavLink to={{
+              pathname: `/movies/${id}/cast`,
+              state: {from: location}}} activeClassName={styles.activeLink} >Cast</NavLink>
           </li>
           <li>
-            <NavLink to={`/movies/${id}/reviews`} activeClassName={styles.activeLink} >Reviews</NavLink>
+            <NavLink to={{
+              pathname: `/movies/${id}/reviews`,
+              state: {from: location}}} activeClassName={styles.activeLink} >Reviews</NavLink>
           </li>
         </ul>
       </div>
@@ -24,4 +28,4 @@ const AddMovieInfo = ({ id }) => {
   );
 };
 
-export default AddMovieInfo;
+export default withRouter(AddMovieInfo);

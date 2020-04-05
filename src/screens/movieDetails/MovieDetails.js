@@ -36,7 +36,6 @@ export default class MovieDetails extends Component {
           const movieGenres = genres.map(item => {
             return item.name;
           });
-          // console.log('data', rez)
           this.setState({
             poster: backdrop_path,
             filmName: original_title,
@@ -50,13 +49,14 @@ export default class MovieDetails extends Component {
   }
 
   handleGoBack = () => {
-    this.props.history.push('/')
+    if(!this.props.location.state){
+      this.props.history.push('/')
+    }
+      this.props.history.push(this.props.location.state.from)
   }
 
   render() {
     const { poster, filmName, overview, id, genres, userScore } = this.state;
-    console.log('this.props', this.props)
-
     return (
       <>
         <button className={styles.button} onClick = {this.handleGoBack}>GO BACK</button>

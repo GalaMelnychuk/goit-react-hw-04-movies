@@ -8,8 +8,6 @@ export default class Cast extends Component {
     cast: []
   };
 
-  maxId = 200;
-
   componentDidMount() {
     const id = getIdFromProps(this.props);
     moviesApiRequest
@@ -22,7 +20,7 @@ export default class Cast extends Component {
       <>
         <ul>
           {this.state.cast.map(actor => (
-            <li key={this.maxId++}>
+            <li key={actor.id}>
               <img
                 src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
                 alt="actor" width='100' height='100'
